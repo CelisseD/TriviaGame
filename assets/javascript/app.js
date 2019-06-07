@@ -24,49 +24,49 @@ var questions = [{
     correctAnswer: "Shady Pines",
     image: "assets/images/q1.gif"
 },{
-    question: "a string",
-    answers: ["an", "array", "with", "four options"],
-    correctAnswer: "with",
+    question: "Where is Rose originally from?",
+    answers: ["Dubuque, Iowa", "St. Olaf, Minnesota", "Fargo, North Dakota", "St. Gustaf, Minnesota"],
+    correctAnswer: "St. Olaf, Minnesota",
     image: "assets/images/q2.gif"
 },{
-    question: "a string",
-    answers: ["an", "array", "with", "four options"],
-    correctAnswer: "with",
+    question: "Why did Sophia have to move in with her daughter, Dorothy?",
+    answers: ["Her retirement home was sold", "Her retirement home burned down", "She was evicted", "She was caught cheating at Bingo at her retirement home"],
+    correctAnswer: "Her retirement home burned down",
     image: "assets/images/q3.gif"
 },{
-    question: "a string",
-    answers: ["an", "array", "with", "four options"],
-    correctAnswer: "with",
+    question: "What was the name of the girls' gay housekeeper in the first episode?",
+    answers: ["Kiki", "Papi", "Coco", "Yoko"],
+    correctAnswer: "Coco",
     image: "assets/images/q4.gif"
 },{
-    question: "a string",
-    answers: ["an", "array", "with", "four options"],
-    correctAnswer: "with",
+    question: "What did the girls almost forget to buy before their vacation with their boyfriends?",
+    answers: ["Toothbrushes", "Condoms", "Tampons", "Deodorant"],
+    correctAnswer: "Condoms",
     image: "assets/images/q5.gif"
 },{
-    question: "a string",
-    answers: ["an", "array", "with", "four options"],
-    correctAnswer: "with",
+    question: "What was the name of Dorothy's philandering ex-husband?",
+    answers: ["George", "Charlie", "Stanley", "Sal"],
+    correctAnswer: "Stanley",
     image: "assets/images/q6.gif"
 },{
-    question: "a string",
-    answers: ["an", "array", "with", "four options"],
-    correctAnswer: "with",
+    question: "Blanche's full name was Blanche ____ Devereaux, making her initials BED.",
+    answers: ["Eliza", "Elizabeth", "Emily", "Eleanor"],
+    correctAnswer: "Elizabeth",
     image: "assets/images/q7.gif"
 },{
-    question: "a string",
-    answers: ["an", "array", "with", "four options"],
-    correctAnswer: "with",
+    question: "What dessert item was the girls' favorite to sit around the kitchen table with, while discussing their love lives?",
+    answers: ["Ice Cream", "Pudding", "Chocolate", "Cheesecake"],
+    correctAnswer: "Cheesecake",
     image: "assets/images/q8.gif"
 },{
-    question: "a string",
-    answers: ["an", "array", "with", "four options"],
-    correctAnswer: "with",
+    question: "What song did Dorothy, Blanche, and Rose sing to the sick baby they were taking care of?",
+    answers: ["Please, Mr. Postman", "Enter Sandman", "Mr. Sandman", "Rock-a-bye Baby"],
+    correctAnswer: "Mr. Sandman",
     image: "assets/images/q9.gif"
 },{
-    question: "a string",
-    answers: ["an", "array", "with", "four options"],
-    correctAnswer: "with",
+    question: "Which of the girls got married to Lucas in the series finale?",
+    answers: ["Blanche", "Rose", "Sophia", "Dorothy"],
+    correctAnswer: "Dorothy",
     image: "assets/images/q10.jpg"
 }]
 
