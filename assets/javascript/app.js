@@ -19,55 +19,55 @@ var countStartNumber = 30;
 
 //
 var questions = [{
-    question: "a string",
-    answers: ["an", "array", "with", "four options"],
-    correctAnswer: "with",
-    image: "link to gif"
+    question: "Where did Dorothy often threaten to send her mother?",
+    answers: ["Oak Lawn", "Forest Lawn", "Shady Grove", "Shady Pines"],
+    correctAnswer: "Shady Pines",
+    image: "assets/images/q1.gif"
 },{
     question: "a string",
     answers: ["an", "array", "with", "four options"],
     correctAnswer: "with",
-    image: "link to gif"
+    image: "assets/images/q2.gif"
 },{
     question: "a string",
     answers: ["an", "array", "with", "four options"],
     correctAnswer: "with",
-    image: "link to gif"
+    image: "assets/images/q3.gif"
 },{
     question: "a string",
     answers: ["an", "array", "with", "four options"],
     correctAnswer: "with",
-    image: "link to gif"
+    image: "assets/images/q4.gif"
 },{
     question: "a string",
     answers: ["an", "array", "with", "four options"],
     correctAnswer: "with",
-    image: "link to gif"
+    image: "assets/images/q5.gif"
 },{
     question: "a string",
     answers: ["an", "array", "with", "four options"],
     correctAnswer: "with",
-    image: "link to gif"
+    image: "assets/images/q6.gif"
 },{
     question: "a string",
     answers: ["an", "array", "with", "four options"],
     correctAnswer: "with",
-    image: "link to gif"
+    image: "assets/images/q7.gif"
 },{
     question: "a string",
     answers: ["an", "array", "with", "four options"],
     correctAnswer: "with",
-    image: "link to gif"
+    image: "assets/images/q8.gif"
 },{
     question: "a string",
     answers: ["an", "array", "with", "four options"],
     correctAnswer: "with",
-    image: "link to gif"
+    image: "assets/images/q9.gif"
 },{
     question: "a string",
     answers: ["an", "array", "with", "four options"],
     correctAnswer: "with",
-    image: "link to gif"
+    image: "assets/images/q10.jpg"
 }]
 
 // A variable to hold the set interval
