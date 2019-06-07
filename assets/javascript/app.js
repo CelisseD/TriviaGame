@@ -1,6 +1,6 @@
 // Click START to begin quiz
 // 10 questions about The Golden Girls
-// Timer starts at 30
+// Timer starts at 15
 // Hover styling over each Option
 // When the user selects an answer, they either get it correct or incorrect
 // Correct will stop timer and give a meme and go to next question
@@ -9,169 +9,218 @@
 // End of game, all done here's how you did
 // start over
 
-//GLOBAL VARIABLES
 
-//This will fill the quiz area in HTML
-var card = $("#quiz-area");
+$(document).ready(function() {
+
+// GLOBAL VARIABLES
+
+// Track what question we're on
+var questionCounter = 0;
 
 // Timer Start Number
-var countStartNumber = 30;
+var countStartNumber = 15;
 
-//
+// Count correct guesses
+var correctGuesses = 0;
+
+// Count incorrect guesses
+var incorrectGuesses = 0;
+
+
+// GAME QUESTIONS
 var questions = [{
     question: "Where did Dorothy often threaten to send her mother?",
     answers: ["Oak Lawn", "Forest Lawn", "Shady Grove", "Shady Pines"],
     correctAnswer: "Shady Pines",
-    image: "assets/images/q1.gif"
+    image: "<img src='assets/images/q1.gif' class='img-circle shadow'>"
 },{
     question: "Where is Rose originally from?",
     answers: ["Dubuque, Iowa", "St. Olaf, Minnesota", "Fargo, North Dakota", "St. Gustaf, Minnesota"],
     correctAnswer: "St. Olaf, Minnesota",
-    image: "assets/images/q2.gif"
+    image: "<img src='assets/images/q2.gif' class='img-circle shadow'>"
 },{
     question: "Why did Sophia have to move in with her daughter, Dorothy?",
     answers: ["Her retirement home was sold", "Her retirement home burned down", "She was evicted", "She was caught cheating at Bingo at her retirement home"],
     correctAnswer: "Her retirement home burned down",
-    image: "assets/images/q3.gif"
+    image: "<img src='assets/images/q3.gif' class='img-circle shadow'>"
 },{
     question: "What was the name of the girls' gay housekeeper in the first episode?",
     answers: ["Kiki", "Papi", "Coco", "Yoko"],
     correctAnswer: "Coco",
-    image: "assets/images/q4.gif"
+    image: "<img src='assets/images/q4.gif' class='img-circle shadow'>"
 },{
     question: "What did the girls almost forget to buy before their vacation with their boyfriends?",
     answers: ["Toothbrushes", "Condoms", "Tampons", "Deodorant"],
     correctAnswer: "Condoms",
-    image: "assets/images/q5.gif"
+    image: "<img src='assets/images/q5.gif' class='img-circle shadow'>"
 },{
     question: "What was the name of Dorothy's philandering ex-husband?",
     answers: ["George", "Charlie", "Stanley", "Sal"],
     correctAnswer: "Stanley",
-    image: "assets/images/q6.gif"
+    image: "<img src='assets/images/q6.gif' class='img-circle shadow'>"
 },{
     question: "Blanche's full name was Blanche ____ Devereaux, making her initials BED.",
     answers: ["Eliza", "Elizabeth", "Emily", "Eleanor"],
     correctAnswer: "Elizabeth",
-    image: "assets/images/q7.gif"
+    image: "<img src='assets/images/q7.gif' class='img-circle shadow'>"
 },{
     question: "What dessert item was the girls' favorite to sit around the kitchen table with, while discussing their love lives?",
     answers: ["Ice Cream", "Pudding", "Chocolate", "Cheesecake"],
     correctAnswer: "Cheesecake",
-    image: "assets/images/q8.gif"
+    image: "<img src='assets/images/q8.gif' class='img-circle shadow'>"
 },{
     question: "What song did Dorothy, Blanche, and Rose sing to the sick baby they were taking care of?",
     answers: ["Please, Mr. Postman", "Enter Sandman", "Mr. Sandman", "Rock-a-bye Baby"],
     correctAnswer: "Mr. Sandman",
-    image: "assets/images/q9.gif"
+    image: "<img src='assets/images/q9.gif' class='img-circle shadow'>"
 },{
     question: "Which of the girls got married to Lucas in the series finale?",
     answers: ["Blanche", "Rose", "Sophia", "Dorothy"],
     correctAnswer: "Dorothy",
-    image: "assets/images/q10.jpg"
+    image: "<img src='assets/images/q10.jpg' class='img-circle shadow'>"
 }]
 
-// A variable to hold the set interval
-var timer;
+// Question and Choices append to HTML #quiz-area
 
-var game = {
-questions: question,
-currentQuestion: 0;
-counter: countStartNumber,
-correct: 0,
-incorect: 0,
+function questionContent() {
+    $("#quiz-area").append("<p><strong>" + 
+            questions[questionCounter].question + 
+            "</p><p class='answers'>" +
+            questions[questionCounter].answers[0] +
+            "</p><p class='answers'>" +
+            questions[questionCounter].answers[1] +
+            "</p><p class='answers'>" +
+            questions[questionCounter].answers[2] +
+            "</p><p class='answers'>" +
+            questions[questionCounter].answers[3] +
+            "</strong></p>");
+}
 
-countdown: function() {
-    //decrement counter - use jquery to dynamically put it on to the page
-    //if statement
-        // if time is up, run time up function
-},
+// If the user guesses correctly
+function answeredCorrectly() {
+    $("#quiz-area").html("<p>Correct!!</p>");
+    correctGuesses++;
+    var correctAnswer = questions[questionCounter].correctAnswer;
+    $("#quiz-area").append("<p>The answer was <span class='answer'>" + correctAnswer + "</span></p>" +
+    questions[questionCounter].image);
+    setTimeout(nextQuestion, 3000);
+    questionCounter++;
+}
 
-loadQuestion: function() {
-    //set timer
-    //timer = set interval(game.countdown, 1000)
-    //dynamically add question into card variable
-    //hint card.html ("<h2>" + "<h2>")
-    //for loop to run through the questions
-    //dynamically added buttons with answer options
-},
+// If the user guesses incorrectly
+function answeredIncorrectly() {
+    $("#quiz-area").html("<p>Inorrect. Shameful.</p>");
+    incorrectGuesses++;
+    var correctAnswer = questions[questionCounter].correctAnswer;
+    $("#quiz-area").append("<p>The answer was <span class='answer'>" + correctAnswer + "</span></p>" +
+    questions[questionCounter].image);
+    setTimeout(nextQuestion, 3000);
+    questionCounter++;
+}
 
-nextQuestion: function() {
-    //set the counter
-    // game.counter = countStartNumber
-    //use jquery to change gthe text of the game counter
-    //increment the currentQuestion by one
-    // call the loadQuestion function
-},
+// If the timer runs out...
+function timeUp() {
+    if (time === 0) {
+        $("#quiz-area").html("<p>Time's Up!</p>");
+    incorrectGuesses++;
+    var correctAnswer = questions[questionCounter].correctAnswer;
+    $("#quiz-area").append("<p>The answer was <span class='answer'>" + correctAnswer + "</span></p>" +
+    questions[questionCounter].image);
+    setTimeout(nextQuestion, 3000);
+    questionCounter++;
+    }
+}
 
-timeUp: function() {
-    //clearInterval(timer)
-    //use jquery to change the text of the game counter
-    // dynamically add out of time to the card
-    //append the correct answer to the card
-    //append image/gif to the card
+// RESULTS SCREEN
+function results() {
+    if (correctGuesses === questions.length) {
+        var endMessage = "You scored 100%! Go grab yourself a dang cheesecake.";
+        var bottomText = "Dorothy is so proud."
+    }
+    else if (correctGuesses > incorrectGuesses) {
+        var endMessage = "Good job!";
+        var bottomText = "Thank You for Being a Friend!"
+    }
+    else {
+        var endMessage = "You may need to study on Hulu and try again...";
+        var bottomText = "Blow it out your tubenburbles!"
+    }
 
-},
+    $("#quiz-area").html("<p>" + endMessage + "</p>" + "<p>You got <strong>" + 
+    correctGuesses + "</strong> right.</p>" + "<p>You got <strong>" + 
+    incorrectGuesses + "</strong> wrong.</p>");
 
-results: function() {
-    //clearInterval
-    //dynamically add html to let them know of their results
-    //use jquery to add html of game.counter to the id of counter-number
-    //add how many correct answers they got
-    // add how many incorrect answers they got
-    //add how many unanswered
-    //add a start over button
-},
+    $("#quiz-area").append("<h1 id='start'>Start Over?</h1>");
 
-clicked: function() {
-    //clearInterval(timer)
-    //if/else startmeent for when an answer is clicked
-    //if correct run answeredCorrectly() function
-    //else run answeredIncorrectly() function
-},
-
-answeredIncorrectly: function() {
-    //add a point to the incorrect column
-    //clearInterval(timer)
-    //dynamically add html to let them know they are wrong
-    //add the right answer
-    // add the image
-    //if/else statement
-        //if no more questions, wait three seconds and then show result
-        //else wait three seconds and show next question
-},
-
-answeredCorrectly: function() {
-    //add a point to the correct column
-    //clearInterval(timer)
-    //dynamicallly add html to let them know they are correct
-    //add image
-    //if else statement
-        //if no more questions, wait three seconds then show result
-        //else wait thtree seconds and show next question
-},
-
-reset: function() {
-
-
-},
+    $("#bottomText").html(bottomText);
+    gameReset();
+    $("#start").click(nextQuestion);
 
 }
 
-// Create Click Events
-//START BUTTON
+// Sets game timer to 15 seconds
+function timer() {
+    clock = setInterval(countDown, 1000);
+    function countDown() {
+        if (time < 1) {
+            clearInterval(clock);
+            timeUp();
+        }
+        if (time > 0) {
+            time--;
+        }
+        $("#timer").html("<strong>" + time + "</strong>");
+    }
+}
 
-$(document).on("click", "#start", function() {
-    $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
-    game.loadQuestion();
-});
+// Loads next question
 
-//ANSWER BUTTON
-$(document).on("click", ".answer-button", function (e) {
-    game.clicked(e);
-});
+function nextQuestion() {
+    if (questionCounter < questions.length) {
+        time = 15;
+        $("#quiz-area").html("<p>You have <span id='timer'>" + time + "</span> seconds left!</p>");
+			questionContent();
+			timer();
+			timeUp();
+    }
+    else {
+        results();
+    }
+console.log(questionCounter);
+console.log(questions[questionCounter].correctAnswer);
+}
 
-//START OVER BUTTON
-$(document).on("click", "#start-over", function () {
-    game.reset();
-});
+// Reset score upon game restart
 
+function gameReset() {
+    questionCounter = 0;
+    correctGuesses = 0;
+    incorrectGuesses = 0;
+}
+
+
+function startGame() {
+    $("#quiz-area").html("<p>You have <span id='timer'>" + time + "</span> seconds left!</p>");
+    $("#start").hide();
+    questionContent();
+    timer();
+    timeUp();
+}
+
+// START GAME
+
+$("#start").click(nextQuestion);
+
+//
+
+$("#quiz-area").on("click", ".answers", (function() {
+    var userGuess = $(this).text();
+    if (userGuess === questions[questionCounter].correctAnswer) {
+        clearInterval(clock);
+        answeredCorrectly();
+    }
+    else {
+        clearInterval(clock);
+        answeredIncorrectly();
+    }
+}))});
