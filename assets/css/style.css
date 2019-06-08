@@ -2,6 +2,46 @@ body {
     background-image:url("../images/background.jpg");
 }
 
-.accent-font {
+header {
+    margin-top: 30px;
+}
+
+.accent-font, #start {
     font-family: 'Leckerli One', cursive;
+}
+
+#bottomText, #topText {
+    background-color: #D4EBB7;
+    border: solid 1px #7DB1B0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.jumbotron {
+    background-color: #F4F5EF;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.answers {
+    text-align: center;
+    border: solid 2px black;
+    border-radius: 5px;
+    margin: 15px 25%;
+    
+}
+
+.imgArt {
+    float: right;
+    padding: 20px;
+    z-index: 100;
+    transform: rotate(10deg);
+}
+
+#timer {
+    font-weight: bold;
+}
+
+.correct, .incorrect, .timeUp {
+    font-size: 36px;
 }
