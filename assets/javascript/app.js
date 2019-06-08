@@ -82,6 +82,22 @@ $(document).ready(function () {
 
     // Question and Choices append to HTML #quiz-area
 
+    // *****NOTE****** I tried to do this in a for loop,
+    // ***** but it came out all crazy, so i trashed the loop.
+
+    // function questionContent() {
+    //     var questionLoop = questions.length;
+    //     for (var i = 0; i < questionLoop; i++) {
+    //         $("#quiz-area").append("<p><strong>" +
+    //         questions[questionCounter].question +
+    //         "</p><p class='answers'>" +
+    //         questions[questionCounter].answers[i] +
+    //         "</strong></p>");
+    //     }
+    // }
+
+
+
     function questionContent() {
         $("#quiz-area").append("<p><strong>" +
             questions[questionCounter].question +
