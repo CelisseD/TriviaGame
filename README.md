@@ -17,7 +17,7 @@ Golden Girls Trivia features everybody's feisty ladies from the 80s. The app wil
 # Technologies Used
 <ul>
     <li>HTML</li>
-    <li>JavaScript/li>
+    <li>JavaScript</li>
     <li>jQuery</li>
     <li>Bootstrap CSS</li>
 </ul>
